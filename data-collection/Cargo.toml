@@ -1,0 +1,15 @@
+[package]
+name = "data-collection"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+serenity = { version = "0.11", default-features = false, features = ["client", "gateway", "rustls_backend", "model"] }
+crossbeam-channel = "0.5.8"
+once_cell = "1.18.0"
+csv = "1.2.2"
+serde = { version = "1.0.188", features = ["serde_derive"] }
+clap = { version = "4.4.3", features = ["derive"] }
