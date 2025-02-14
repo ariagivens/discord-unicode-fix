@@ -1,7 +1,7 @@
-use std::fs::File;
-use std::error::Error;
-use serde::{Deserialize, Serialize};
 use clap::Parser;
+use serde::{Deserialize, Serialize};
+use std::error::Error;
+use std::fs::File;
 
 #[derive(Parser)]
 struct Args {
@@ -16,15 +16,20 @@ struct Record {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let Args { input, output } = Args::parse();    
+    let Args { input, output } = Args::parse();
     let file = File::open(&input)?;
     let mut csv = csv::Reader::from_reader(file);
 
-    let mut records = Vec::new(); 
+    let mut records = Vec::new();
     for record in csv.deserialize::<Record>() {
         let record = record?;
-        records.push(Record { expected: record.expected.clone(), actual: record.expected.clone() });
-        if record.expected != record.actual && records.iter().find(|r: &&Record| r.actual == record.actual).is_none() {
+        if !records.iter().any(|r| *r == record) {
+            records.push(Record {
+                expected: record.expected.clone(),
+                actual: record.expected.clone(),
+            });
+        }
+        if record.expected != record.actual && !records.iter().any(|r| r.actual == record.actual) {
             records.push(record);
         }
     }
@@ -37,7 +42,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     for record in records {
         output_csv.serialize(record)?;
     }
-    
 
     Ok(())
 }
