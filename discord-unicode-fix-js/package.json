@@ -1,23 +1,23 @@
 {
-    "name": "@ariagivens/discord-unicode-fix-js",
-    "version": "1.0.0",
-    "main": "./dist/discord_unicode_fix.js",
-    "files": [
-        "dist"
-    ],
-    "type": "module",
-    "devDependencies": {
-        "@rollup/plugin-commonjs": "^25.0.4",
-        "@rollup/plugin-dsv": "^3.0.2",
-        "@rollup/plugin-node-resolve": "^15.2.1",
-        "ava": "^5.3.1",
-        "rollup": "^3.25.0"
-    },
-    "dependencies": {
-        "grapheme-splitter": "^1.0.4"
-    },
-    "scripts": {
-        "test": "rollup -c && ava",
-        "prepublishOnly": "rollup -c"
-    }
+  "name": "@ariagivens/discord-unicode-fix-js",
+  "version": "1.1.0",
+  "main": "./dist/discord_unicode_fix.js",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-dsv": "^3.0.2",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "ava": "^5.3.1",
+    "rollup": "^3.25.0"
+  },
+  "dependencies": {
+    "grapheme-splitter": "^1.0.4"
+  },
+  "scripts": {
+    "test": "rollup -c && ava",
+    "prepublishOnly": "rollup -c"
+  }
 }
