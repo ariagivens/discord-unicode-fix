@@ -1,6 +1,6 @@
 {
   "name": "@ariagivens/discord-unicode-fix-js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "./dist/discord_unicode_fix.js",
   "files": [
     "dist"
@@ -12,9 +12,6 @@
     "@rollup/plugin-node-resolve": "^15.2.1",
     "ava": "^5.3.1",
     "rollup": "^3.25.0"
-  },
-  "dependencies": {
-    "grapheme-splitter": "^1.0.4"
   },
   "scripts": {
     "test": "rollup -c && ava",
